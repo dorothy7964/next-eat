@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 import Seo from "./Seo";
 
@@ -11,8 +11,16 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Seo />
       <NavBar />
-      <div>{children}</div>
-      <footer>하단</footer>
+      <div className="contents">{children}</div>
+      <Footer />
+
+      <style jsx>{`
+        .contents {
+          background-color: orange;
+          display: flex;
+          min-height: calc(100vh - 65px);
+        }
+      `}</style>
     </>
   );
 }
