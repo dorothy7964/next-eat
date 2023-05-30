@@ -2,38 +2,36 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function NavBar() {
+export default function Header() {
   const router = useRouter();
 
   return (
     <nav>
-      <Image src="/vercel.svg" alt="logo" width={100} height={20} />
+      <h1>AWESOME FOOD STORE</h1>
       <div>
-        <Link href="/">
-          <span className={router.pathname === "/" ? "active" : ""}>Home</span>
-        </Link>
         <Link href="/about">
           <span className={router.pathname === "/about" ? "active" : ""}>
-            About
+            ABOUT 
+          </span>
+        </Link>
+        <Link href="/store">
+          <span className={router.pathname === "/store" ? "active" : ""}>
+            STORE
           </span>
         </Link>
       </div>
       <style jsx>{`
         nav {
           display: flex;
-          gap: 10px;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 20px;
-          padding-bottom: 10px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          display: flex;
+          justify-content: space-between;
+          background-color: cornflowerblue;
+          padding: 10px;
         }
-        img {
-          max-width: 100px;
-          margin-bottom: 5px;
+        h1 {
+          font-weight: bold;
         }
-        nav a {
+        nav span {
           font-weight: 600;
           font-size: 18px;
         }

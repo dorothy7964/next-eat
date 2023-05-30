@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+import Header from "./Header";
 import Seo from "./Seo";
 
 type LayoutProps = {
@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Seo />
-      <NavBar />
+      <Header />
       <div className="contents">{children}</div>
       <Footer />
 
@@ -18,7 +18,7 @@ export default function Layout({ children }: LayoutProps) {
         .contents {
           background-color: orange;
           display: flex;
-          min-height: calc(100vh - 65px);
+          min-height: calc(100vh - 120px);
         }
       `}</style>
     </>

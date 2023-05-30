@@ -11,7 +11,8 @@ export default function RoutePath() {
 
   const page: RoutePathPros = {
     "/": "Home",
-    "/about": "About",
+    "/about": "ABOUT ",
+    "/store": "STORE",
     "/movies/[...params]": `${movieTitle}`,
     "/404": "NotFound"
   };

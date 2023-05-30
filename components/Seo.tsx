@@ -2,7 +2,7 @@ import Head from "next/head";
 import RoutePath from "./RoutePath";
 
 export default function Seo() {
-  const fullTitle = `${RoutePath()} | Next Movies`;
+  const fullTitle = `${RoutePath()} | AWESOME FOOD STORE`;
 
   return (
     <Head>
