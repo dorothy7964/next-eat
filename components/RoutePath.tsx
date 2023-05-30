@@ -6,14 +6,14 @@ type RoutePathPros = {
 
 export default function RoutePath() {
   const router = useRouter();
-  const movieTitle =
-    (router.query.params && router.query.params[0]) || "not movie title";
+  const storeTitle =
+    (router.query.params && router.query.params[0]) || "not store name";
 
   const page: RoutePathPros = {
     "/": "Home",
     "/about": "ABOUT ",
     "/store": "STORE",
-    "/movies/[...params]": `${movieTitle}`,
+    "/store/[...params]": `${storeTitle}`,
     "/404": "NotFound"
   };
 

@@ -1,54 +1,48 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Store({
-  results
+  stores
 }: InferGetServerSidePropsType<GetServerSideProps>) {
   const router = useRouter();
-  const onClick = (id: string, title: string) => {
-    router.push(`/movies/${title}/${id}`);
+  const onClick = (id: string, name: string) => {
+    router.push(`/store/${name}/${id}`);
   };
+
+  console.log("📢 [store.tsx:13]", stores);
 
   return (
     <div className="container">
-      {results?.map((movie: any) => (
+      {stores?.map((store: any) => (
         <div
-          onClick={() => onClick(movie.id, movie.original_title)}
-          className="movie"
-          key={movie.id}
+          onClick={() => onClick(store.id, store.name)}
+          className="store"
+          key={store.id}
         >
-          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-          <h4>
-            <Link href={`/movies/${movie.original_title}/${movie.id}`}>
-              {movie.original_title}
-            </Link>
-          </h4>{" "}
+          <img src={`${store.thumb}`} />
         </div>
       ))}
 
       <style jsx>{`
         .container {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          padding: 20px;
-          gap: 20px;
+          grid-template-rows: repeat(4 100px);
+          grid-template-columns: repeat(4, 200px);
+          gap: 10px;
+          align-content: center;
+          justify-content: center;
         }
-        .movie {
+        .store {
           cursor: pointer;
         }
-        .movie img {
+        .store img {
           max-width: 100%;
           border-radius: 12px;
           transition: transform 0.2s ease-in-out;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         }
-        .movie:hover img {
+        .store:hover img {
           transform: scale(1.05) translateY(-10px);
-        }
-        .movie h4 {
-          font-size: 18px;
-          text-align: center;
         }
       `}</style>
     </div>
@@ -56,12 +50,11 @@ export default function Store({
 }
 
 export async function getServerSideProps() {
-  const { results } = await (
-    await fetch(`http://localhost:3000/api/movies`)
-  ).json();
+  const stores = await (await fetch(`http://localhost:9000/stores`)).json();
+
   return {
     props: {
-      results
+      stores
     }
   };
 }

@@ -2,6 +2,10 @@ const API_KEY = process.env.API_KEY;
 
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ["s3.ap-northeast-2.amazonaws.com"]
+  },
+
   async redirects() {
     return [
       {
@@ -10,21 +14,13 @@ module.exports = {
         permanent: false
       }
     ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api/movies",
-        destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-      },
-      {
-        source: "/api/movies/:id",
-        destination: `https://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}`
-      },
-      {
-        source: "/api/movies/:id",
-        destination: `https://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}`
-      }
-    ];
   }
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/store/:name/:id",
+  //       destination: `http://localhost:9000/stores/:id`
+  //     }
+  //   ];
+  // }
 };

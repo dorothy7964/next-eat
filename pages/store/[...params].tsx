@@ -1,8 +1,9 @@
 export default function Detail({ params }: any) {
-  const [title, id] = params || [];
+  const [name, id] = params || [];
+  console.log("📢 [[...params].tsx:3]", params);
   return (
     <div>
-      <h4>{title}</h4>
+      <h4>{name}</h4>
     </div>
   );
 }
