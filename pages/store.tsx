@@ -1,12 +1,17 @@
+import Modal from "@/components/Modal";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function Store({
   stores
 }: InferGetServerSidePropsType<GetServerSideProps>) {
   const router = useRouter();
+  const [modalOpen, setModalOpen] = useState(false);
+
   const onClick = (id: string, name: string) => {
-    router.push(`/store/${name}/${id}`);
+    // router.push(`/store/${name}/${id}`);
+    setModalOpen(true);
   };
 
   console.log("📢 [store.tsx:13]", stores);
@@ -22,6 +27,8 @@ export default function Store({
           <img src={`${store.thumb}`} />
         </div>
       ))}
+
+      <Modal open={modalOpen} setModalOpen={setModalOpen} />
 
       <style jsx>{`
         .container {
