@@ -18,7 +18,7 @@ module.exports = {
   // async rewrites() {
   //   return [
   //     {
-  //       source: "/store/:name/:id",
+  //       source: "/store/:id",
   //       destination: `http://localhost:9000/stores/:id`
   //     }
   //   ];

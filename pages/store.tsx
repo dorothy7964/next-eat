@@ -1,34 +1,31 @@
 import Modal from "@/components/Modal";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function Store({
   stores
 }: InferGetServerSidePropsType<GetServerSideProps>) {
-  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
+  const [storeData, setStoreData] = useState({});
 
-  const onClick = (id: string, name: string) => {
-    // router.push(`/store/${name}/${id}`);
+  const onClick = (store: any) => {
     setModalOpen(true);
+    setStoreData(store);
   };
-
-  console.log("📢 [store.tsx:13]", stores);
 
   return (
     <div className="container">
       {stores?.map((store: any) => (
-        <div
-          onClick={() => onClick(store.id, store.name)}
-          className="store"
-          key={store.id}
-        >
+        <div onClick={() => onClick(store)} className="store" key={store.id}>
           <img src={`${store.thumb}`} />
         </div>
       ))}
 
-      <Modal open={modalOpen} setModalOpen={setModalOpen} />
+      <Modal
+        open={modalOpen}
+        storeData={storeData}
+        setModalOpen={setModalOpen}
+      />
 
       <style jsx>{`
         .container {
