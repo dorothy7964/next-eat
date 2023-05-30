@@ -7,7 +7,9 @@ export default function Header() {
 
   return (
     <nav>
-      <h1>AWESOME FOOD STORE</h1>
+      <h1>
+        <Link href="/">AWESOME FOOD STORE</Link>
+      </h1>
       <div>
         <Link href="/about">
           <span className={router.pathname === "/about" ? "active" : ""}>
