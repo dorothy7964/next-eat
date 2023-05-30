@@ -1,6 +1,10 @@
 import {
   Box,
   Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
   Link,
   Modal as MuiModal,
   Typography
@@ -15,7 +19,14 @@ type ModalProps = {
 
 export default function Modal({ open, storeData, setModalOpen }: ModalProps) {
   const description =
-    storeData.description && storeData.description.replace(/\n/g, "<br>");
+    storeData.description &&
+    storeData.description
+      .replace(/</g, "&lt")
+      .replace(/\n/g, "<br>")
+      .replace(
+        "LAST ORDER :",
+        '<span style="color: #1976d2; font-weight: bold;">LAST ORDER :</span>'
+      );
 
   return (
     <MuiModal
@@ -24,17 +35,36 @@ export default function Modal({ open, storeData, setModalOpen }: ModalProps) {
       aria-labelledby="child-modal-title"
       aria-describedby="child-modal-description"
     >
-      <Box sx={{ ...style, width: 600 }}>
-        <Button onClick={() => setModalOpen(false)}>X</Button>
-        <img src={storeData.thumb} />
-        <Typography id="transition-modal-title" variant="h6" component="h2">
-          {storeData.name}
-        </Typography>
-        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-          {ReactHtmlParser(description)}
-        </Typography>
-        {storeData.url && <Link href={storeData.url}>홈페이지 바로가기</Link>}
-      </Box>
+      <Card sx={{ ...style, maxWidth: 600 }}>
+        <Button
+          sx={{ ...buttonStyle }}
+          variant="text"
+          onClick={() => setModalOpen(false)}
+        >
+          X
+        </Button>
+        <CardMedia
+          component="img"
+          alt="store-image"
+          height="100"
+          image={storeData.thumb}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {storeData.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {ReactHtmlParser(description)}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          {storeData.url && (
+            <Button size="small" href={storeData.url} target="_blank">
+              홈페이지 바로가기
+            </Button>
+          )}
+        </CardActions>
+      </Card>
     </MuiModal>
   );
 }
@@ -45,10 +75,15 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3
+  outline: "none"
+};
+
+const buttonStyle = {
+  position: "absolute" as "absolute",
+  right: 0,
+  fontWeight: "bold",
+  fontSize: "1.2rem",
+  color: "#fff",
+  cursor: "pointer"
 };

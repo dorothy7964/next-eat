@@ -17,7 +17,7 @@ export default function Store({
     <div className="container">
       {stores?.map((store: any) => (
         <div onClick={() => onClick(store)} className="store" key={store.id}>
-          <img src={`${store.thumb}`} />
+          <img src={store.thumb} />
         </div>
       ))}
 
