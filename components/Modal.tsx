@@ -5,11 +5,12 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Link,
   Modal as MuiModal,
   Typography
 } from "@mui/material";
 import ReactHtmlParser from "react-html-parser";
+import Link from "next/link";
+import StoreDetail from "./StoreDetail";
 
 type ModalProps = {
   open: boolean;
@@ -49,21 +50,7 @@ export default function Modal({ open, storeData, setModalOpen }: ModalProps) {
           height="100"
           image={storeData.thumb}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {storeData.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {ReactHtmlParser(description)}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          {storeData.url && (
-            <Button size="small" href={storeData.url} target="_blank">
-              홈페이지 바로가기
-            </Button>
-          )}
-        </CardActions>
+        <StoreDetail storeData={storeData} />
       </Card>
     </MuiModal>
   );

@@ -11,10 +11,14 @@ export default function About() {
       </p>
 
       <style jsx>{`
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
         p {
           margin: 10px;
-          border-radius: 0 15px 15px 0;
-          border-left: inset;
+          border-radius: 15px;
           padding: 0.6em;
           background: #ebeef0;
         }

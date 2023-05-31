@@ -19,7 +19,6 @@ export default function Layout({ children }: LayoutProps) {
           display: flex;
           min-height: calc(100vh - 9rem);
           justify-content: center;
-          align-items: center;
         }
       `}</style>
     </>

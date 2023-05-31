@@ -6,7 +6,6 @@ type RoutePathPros = {
 
 export default function RoutePath() {
   const router = useRouter();
-  console.log("📢 [RoutePath.tsx:9]", router);
   const storeTitle =
     (router.query.params && router.query.params[0]) || "not store name";
 
@@ -14,7 +13,7 @@ export default function RoutePath() {
     "/": "Home",
     "/about": "ABOUT ",
     "/store": "STORE",
-    "/store/[id]": `${storeTitle}`,
+    "/store/[...params]": `${storeTitle}`,
     "/404": "NotFound"
   };
 
