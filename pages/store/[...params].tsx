@@ -10,12 +10,14 @@ export default function Detail({
       <StoreDetail storeData={storeDetailData} />
 
       <style jsx>{`
-        .img {
-          width: 80%;
-          background-color: red;
-        }
         div {
-          padding: 30px 100px;
+          margin: 20px 150px;
+          padding: 20px;
+        }
+        img {
+          display: flex;
+          margin: 0 auto;
+          margin-bottom: 2rem;
         }
       `}</style>
     </div>

@@ -8,7 +8,7 @@ export default function Footer() {
           display: flex;
           justify-content: end;
           align-items: end;
-          border-top: 0.1px solid lightgrey;
+          background-color: #ddd;
           height: 75px;
           padding: 10px;
         }

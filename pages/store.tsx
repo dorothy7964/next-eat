@@ -31,13 +31,16 @@ export default function Store({
         .container {
           display: grid;
           grid-template-rows: repeat(4 100px);
-          grid-template-columns: repeat(4, 200px);
+          grid-template-columns: repeat(4, 1fr);
           gap: 10px;
           align-content: center;
           justify-content: center;
+          padding: 0 40px;
         }
         .store {
           cursor: pointer;
+          display: flex;
+          justify-content: center;
         }
         .store img {
           max-width: 100%;
