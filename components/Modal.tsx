@@ -1,9 +1,10 @@
 import { Button, Card, CardMedia, Modal as MuiModal } from "@mui/material";
 import StoreDetail from "./StoreDetail";
+import { IStoresAPI } from "@/types/stores";
 
 type ModalProps = {
   open: boolean;
-  storeData: any;
+  storeData: IStoresAPI;
   setModalOpen: (isOpen: boolean) => void;
 };
 

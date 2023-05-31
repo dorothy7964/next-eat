@@ -1,4 +1,5 @@
 import Modal from "@/components/Modal";
+import { IStoresAPI } from "@/types/stores";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useState } from "react";
 
@@ -23,7 +24,7 @@ export default function Store({
 
       <Modal
         open={modalOpen}
-        storeData={storeData}
+        storeData={storeData as IStoresAPI}
         setModalOpen={setModalOpen}
       />
 

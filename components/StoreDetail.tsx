@@ -1,9 +1,10 @@
+import { IStoresAPI } from "@/types/stores";
 import { Button, CardActions, CardContent, Typography } from "@mui/material";
 import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 
 type StoreDetailProps = {
-  storeData: any;
+  storeData: IStoresAPI;
 };
 
 export default function StoreDetail({ storeData }: StoreDetailProps) {

@@ -25,7 +25,6 @@ export default function Header() {
       <style jsx>{`
         nav {
           display: flex;
-          display: flex;
           justify-content: space-between;
           background-color: lightsteelblue;
           color: #fff;
