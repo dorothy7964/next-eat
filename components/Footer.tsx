@@ -8,8 +8,9 @@ export default function Footer() {
           display: flex;
           justify-content: end;
           align-items: end;
-          background-color: lightgrey;
+          border-top: 0.1px solid lightgrey;
           height: 75px;
+          padding: 10px;
         }
         p {
           color: #868e96;

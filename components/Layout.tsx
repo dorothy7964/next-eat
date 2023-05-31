@@ -16,9 +16,10 @@ export default function Layout({ children }: LayoutProps) {
 
       <style jsx>{`
         .contents {
-          background-color: orange;
           display: flex;
-          min-height: calc(100vh - 120px);
+          min-height: calc(100vh - 9rem);
+          justify-content: center;
+          align-items: center;
         }
       `}</style>
     </>

@@ -26,10 +26,12 @@ export default function Header() {
           display: flex;
           display: flex;
           justify-content: space-between;
-          background-color: cornflowerblue;
-          padding: 10px;
+          background-color: lightsteelblue;
+          color: #fff;
+          padding: 20px;
         }
         h1 {
+          color: black;
           font-weight: bold;
         }
         nav span {
@@ -37,7 +39,7 @@ export default function Header() {
           font-size: 18px;
         }
         .active {
-          color: tomato;
+          color: #1976d2;
         }
         nav div {
           display: flex;
