@@ -21,6 +21,7 @@ export default function Header() {
           </span>
         </Link>
       </div>
+
       <style jsx>{`
         nav {
           display: flex;

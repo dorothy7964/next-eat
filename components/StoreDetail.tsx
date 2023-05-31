@@ -1,25 +1,12 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography
-} from "@mui/material";
-import ReactHtmlParser from "react-html-parser";
+import { Button, CardActions, CardContent, Typography } from "@mui/material";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import ReactHtmlParser from "react-html-parser";
 
 type StoreDetailProps = {
   storeData: any;
 };
 
 export default function StoreDetail({ storeData }: StoreDetailProps) {
-  const router = useRouter();
-
-  const isDetailPage = router.pathname === "/store/[id]";
-
   const description =
     storeData &&
     storeData.description &&
@@ -53,22 +40,3 @@ export default function StoreDetail({ storeData }: StoreDetailProps) {
     </div>
   );
 }
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  boxShadow: 24,
-  outline: "none"
-};
-
-const buttonStyle = {
-  position: "absolute" as "absolute",
-  right: 0,
-  fontWeight: "bold",
-  fontSize: "1.2rem",
-  color: "#fff",
-  cursor: "pointer"
-};

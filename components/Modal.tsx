@@ -1,15 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Modal as MuiModal,
-  Typography
-} from "@mui/material";
-import ReactHtmlParser from "react-html-parser";
-import Link from "next/link";
+import { Button, Card, CardMedia, Modal as MuiModal } from "@mui/material";
 import StoreDetail from "./StoreDetail";
 
 type ModalProps = {
@@ -19,16 +8,6 @@ type ModalProps = {
 };
 
 export default function Modal({ open, storeData, setModalOpen }: ModalProps) {
-  const description =
-    storeData.description &&
-    storeData.description
-      .replace(/</g, "&lt")
-      .replace(/\n/g, "<br>")
-      .replace(
-        "LAST ORDER :",
-        '<span style="color: #1976d2; font-weight: bold;">LAST ORDER :</span>'
-      );
-
   return (
     <MuiModal
       open={open}
@@ -44,6 +23,7 @@ export default function Modal({ open, storeData, setModalOpen }: ModalProps) {
         >
           X
         </Button>
+
         <CardMedia
           component="img"
           alt="store-image"

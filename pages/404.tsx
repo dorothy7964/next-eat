@@ -17,6 +17,13 @@ export default function NotFound() {
   return (
     <div>
       <h1>요청하신 페이지는 존재하지 않습니다.</h1>
+
+      <style jsx>{`
+        div {
+          display: flex;
+          align-items: center;
+        }
+      `}</style>
     </div>
   );
 }
